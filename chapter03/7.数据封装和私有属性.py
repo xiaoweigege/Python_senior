@@ -1,4 +1,3 @@
-
 class Date(object):
     def __init__(self, year, month, day):
         self.year = year
@@ -32,19 +31,15 @@ class Date(object):
         return "{year}/{month}/{day}".format(year=self.year, month=self.month, day=self.day)
 
 
+class User(object):
+    def __init__(self, birthady):
+        self.__birthady = birthady
+
+    def get_age(self):
+        return 2018 - self.__birthady.year
+
+
 if __name__ == '__main__':
-
-    newDate = Date(2018, 12, 23)
-    newDate.add_one_day()
-    print(newDate)
-
-    # 静态方法完成实例化
-    new_date = Date.parser_from_string('2018-12-31')
-    print(new_date)
-
-    # 类方法实现实例化
-    class_date = Date.from_string('2018-12-18')
-    print(class_date)
-
-    print(Date.valid_str('2018-12-15'))
-    
+    user = User(Date.from_string('1996-09-02'))
+    print(user.get_age())
+    print(user._User__birthady)
