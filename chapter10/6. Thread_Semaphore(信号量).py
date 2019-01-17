@@ -10,6 +10,7 @@ class HtmlSpider(Thread):
         super().__init__()
         self.url = url
         self.sem = sem
+
     def run(self):
         time.sleep(2)
         print('get html text success, {}'.format(self.url))
@@ -28,7 +29,6 @@ class UrlProducer(Thread):
             url = 'https://www.baidu.com/{}'.format(page)
             html_thread = HtmlSpider(url, self.sem)
             html_thread.start()
-
 
 
 if __name__ == '__main__':
